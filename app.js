@@ -3,15 +3,12 @@
 const switcher = document.querySelector('.btn');
 
 switcher.addEventListener('click', function() {
-    document.body.classList.toggle('dark-theme')
-
-    var className = document.body.className;
-    if (className == "light-theme") {
-        this.textContent = "Dark";
+    document.body.classList.toggle('dark-theme');
+    if (document.body.classList.contains('dark-theme')) {
+        switcher.textContent = 'Light';
     } else {
-        this.textContent = "Light";
+        switcher.textContent = 'Dark';
     }
-
     console.log('current class name: ' + className);
 
 });
