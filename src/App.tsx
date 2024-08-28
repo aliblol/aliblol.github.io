@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { Clock, Folder, User } from "lucide-react";
+import { Folder, User } from "lucide-react";
 import DesktopIcon from "./components/DesktopIcon";
 import TitleBar from "./components/TitleBar";
 import ProjectWindow from "./components/ProjectWindow";
 
 export default function Component() {
-    const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
     const [isProjectWindowOpen, setIsProjectWindowOpen] = useState(false);
     const [isAboutMeOpen, setIsAboutMeOpen] = useState(false);
 
-    const toggleStartMenu = () => setIsStartMenuOpen(!isStartMenuOpen);
     const toggleProjectWindow = () =>
         setIsProjectWindowOpen(!isProjectWindowOpen);
     const toggleAboutMe = () => setIsAboutMeOpen(!isAboutMeOpen);
