@@ -9,7 +9,8 @@ const F1DataProject: React.FC = () => {
         const fetchRaceData = async () => {
             try {
                 const response = await fetch(
-                    "/api/race-data/2024/Bahrain/R"
+                    // "/api/race-data/2024/Bahrain/R"
+                    'https://ergast.com/api/f1/2024/1/results.json'
                 );
                 if (!response.ok) {
                     throw new Error("Network response was not ok");

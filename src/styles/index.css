@@ -28,3 +28,8 @@ body {
     box-sizing: border-box;
     font-family: "Pixelated MS Sans Serif" !important;
 }
+
+#canvas-container {
+    width: 100vw;
+    height: 100vh;
+  }
