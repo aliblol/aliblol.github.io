@@ -1,0 +1,28 @@
+:root {
+  --color: #ff0;
+  --shadow: #fc0;
+  --glare: hsl(0 0% 100% / 0.75);
+  --font-size: 1.5rem;
+  --transition: 0.2s;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: #c0c0c0;
+  padding: 2rem;
+}
+
+.sparkle-button {
+  position: relative;
+  padding: 1rem;
+  text-decoration: none;
+  color: transparent;
+  display: inline-block;
+  border: 2px solid #000;
+  background: #fff;
+  font-weight: bold;
+  font-size: var(--font-size);
+  transition: background 0.2s;
+}
+
+/* Add your sparkle animation and SVG styling here */

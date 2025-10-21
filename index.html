@@ -3,36 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My GitHub Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #007acc;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      margin-top: 1rem;
-      cursor: pointer;
-    }
-  </style>
+  <title>Alice's Super Cool Portfolio!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
 </head>
-<body>
-  <header>
-    <h1>Welcome to My GitHub Page</h1>
+<body class="window">
+  <header class="title-bar">
+    <div class="title-bar-text">Welcome to My GitHub Page</div>
   </header>
-  <main>
+  <main class="window-body">
     <p>This is a simple static site hosted on GitHub Pages.</p>
     <button onclick="sayHello()">Click Me</button>
+
+    <a href="#" class="sparkle-button">
+      <!-- Sparkles -->
+      <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="..." /></svg>
+      <!-- Repeat SVGs as needed -->
+      <span>Click!</span>
+      <span aria-hidden="true">Click!</span>
+    </a>
   </main>
   <script>
     function sayHello() {
