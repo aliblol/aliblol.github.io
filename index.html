@@ -3,30 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alice's Super Cool Portfolio!</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Alice's Cyber Y2K Portfolio</title>
   <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="window">
+<body>
   <header class="title-bar">
-    <div class="title-bar-text">Welcome to My GitHub Page</div>
+    <div class="title-bar-text">Welcome to My Cyber Desktop</div>
   </header>
-  <main class="window-body">
-    <p>This is a simple static site hosted on GitHub Pages.</p>
-    <button onclick="sayHello()">Click Me</button>
 
-    <a href="#" class="sparkle-button">
-      <!-- Sparkles -->
-      <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="..." /></svg>
-      <!-- Repeat SVGs as needed -->
-      <span>Click!</span>
-      <span aria-hidden="true">Click!</span>
-    </a>
+  <main>
+    <div class="window content-window hidden">
+      <div class="title-bar">
+        <div class="title-bar-text">💿 About Me</div>
+      </div>
+      <div class="window-body cyber-core">
+        <h2>👾 Alice.exe</h2>
+        <p>Living in the future since 2001.</p>
+      </div>
+    </div>
+
+    <div class="window content-window hidden">
+      <div class="title-bar">
+        <div class="title-bar-text">📁 Projects</div>
+      </div>
+      <div class="window-body cyber-core">
+        <ul>
+          <li><strong>✨ Code Club:</strong> BBC Micro:Bit lesson rescources for primary school children</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="window content-window hidden">
+      <div class="title-bar">
+        <div class="title-bar-text">🔊 Fun Button</div>
+      </div>
+      <div class="window-body cyber-core">
+<button class="fun-button" onclick="toggleShowCoolAlert()">💥 Click Me 💥</button>
+      </div>
+    </div>
   </main>
+
   <script>
-    function sayHello() {
-      alert("Hello from GitHub Pages!");
-    }
-  </script>
+  const windows = document.querySelectorAll('.content-window');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  windows.forEach(win => observer.observe(win));
+
+  function toggleShowCoolAlert() {
+    const alertBox = document.createElement('div');
+    alertBox.className = 'cool-alert';
+    alertBox.innerHTML = `
+      <div class="alert-content">
+        <h3>🌐 SYSTEM MESSAGE</h3>
+        <p>✨ You’ve unlocked a secret cyber portal! ✨</p>
+        <button onclick="this.parentElement.parentElement.remove()">Close</button>
+      </div>
+    `;
+    document.body.appendChild(alertBox);
+  }
+</script>
 </body>
 </html>
