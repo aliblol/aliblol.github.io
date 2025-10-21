@@ -1,72 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alice's Cyber Y2K Portfolio</title>
-  <link rel="stylesheet" href="https://unpkg.com/98.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="title-bar">
-    <div class="title-bar-text">Welcome to My Cyber Desktop</div>
-  </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alice's Cyber Y2K Portfolio</title>
+        <link rel="stylesheet" href="https://unpkg.com/98.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="title-bar">
+            <div class="title-bar-text">Welcome to My Cyber Desktop</div>
+        </header>
+        <main>
+            <section class="window-grid">
+                <div class="window content-window">
+                    <div class="title-bar">
+                        <div class="title-bar-text">💿 About Me</div>
+                    </div>
+                    <div class="window-body cyber-core">
+                        <h2>👾 Alice.exe</h2>
+                        <p>Living in the future since 2001.</p>
+                    </div>
+                </div>
 
-  <main>
-    <div class="window content-window hidden">
-      <div class="title-bar">
-        <div class="title-bar-text">💿 About Me</div>
-      </div>
-      <div class="window-body cyber-core">
-        <h2>👾 Alice.exe</h2>
-        <p>Living in the future since 2001.</p>
-      </div>
-    </div>
+                <div class="window content-window">
+                    <div class="title-bar">
+                        <div class="title-bar-text">📁 Projects</div>
+                    </div>
+                    <div class="window-body cyber-core">
+                        <ul>
+                            <li>
+                                <strong>
+                                    <a
+                                        href="#"
+                                        onclick="showCodeClubWindow(event)"
+                                    >
+                                        Code Club </a
+                                    >:</strong
+                                >
+                                BBC Micro:Bit lesson resources for primary
+                                school children
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-    <div class="window content-window hidden">
-      <div class="title-bar">
-        <div class="title-bar-text">📁 Projects</div>
-      </div>
-      <div class="window-body cyber-core">
-        <ul>
-          <li><strong>✨ Code Club:</strong> BBC Micro:Bit lesson rescources for primary school children</li>
-        </ul>
-      </div>
-    </div>
+                <div
+                    class="window content-window invisible"
+                    id="code-club-window"
+                >
+                    <div class="title-bar">
+                        <div class="title-bar-text">🧠 Code Club Resources</div>
+                        <div class="title-bar-controls">
+                            <button
+                                aria-label="Close"
+                                onclick="hideCodeClubWindow()"
+                            >
+                                ✖
+                            </button>
+                        </div>
+                    </div>
 
-    <div class="window content-window hidden">
-      <div class="title-bar">
-        <div class="title-bar-text">🔊 Fun Button</div>
-      </div>
-      <div class="window-body cyber-core">
-<button class="fun-button" onclick="toggleShowCoolAlert()">💥 Click Me 💥</button>
-      </div>
-    </div>
-  </main>
+                    <div class="window-body cyber-core">
+                        <ul class="repo-list">
+                            <li>
+                                <div class="repo-header">
+                                    <a
+                                        href="https://aliblol.github.io/code-club-2025-6/"
+                                        target="_blank"
+                                        class="repo-title"
+                                    >
+                                        Micro:Bit Cutebot Roadmap
+                                    </a>
+                                    <a
+                                        href="https://github.com/aliblol/code-club-2025-6"
+                                        target="_blank"
+                                    >
+                                        <img
+                                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                            alt="GitHub"
+                                            class="repo-icon"
+                                            title="See the code on GitHub"
+                                        />
+                                    </a>
+                                </div>
+                                <p>
+                                    A full-term plan for teaching robotics with
+                                    <a
+                                        href="https://microbit.org"
+                                        target="_blank"
+                                    >
+                                        BBC Micro:Bit
+                                    </a>
+                                    and
+                                    <a
+                                        href="https://www.elecfreaks.com/learn-en/microbitKit/smart_cutebot/cutebot_car.html"
+                                        target="_blank"
+                                    >
+                                        ElecFreaks Cutebot </a
+                                    >. Includes progressive challenges,
+                                    classroom tips, and extension ideas.
+                                </p>
+                            </li>
 
-  <script>
-  const windows = document.querySelectorAll('.content-window');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  windows.forEach(win => observer.observe(win));
+                            <li>
+                                <div class="repo-header">
+                                    <a
+                                        href="https://aliblol.github.io/cutebot-receiver/"
+                                        target="_blank"
+                                        class="repo-title"
+                                    >
+                                        Cutebot Receiver
+                                    </a>
+                                    <a
+                                        href="https://github.com/aliblol/cutebot-receiver"
+                                        target="_blank"
+                                    >
+                                        <img
+                                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                            alt="GitHub"
+                                            class="repo-icon"
+                                            title="See the code on GitHub"
+                                        />
+                                    </a>
+                                </div>
+                                <p>
+                                    Micro:Bit v2 code for the Cutebot robot.
+                                    Handles basic movement (forward, reverse,
+                                    turning), LED lights, and sound effects —
+                                    perfect for beginners.
+                                </p>
+                            </li>
 
-  function toggleShowCoolAlert() {
-    const alertBox = document.createElement('div');
-    alertBox.className = 'cool-alert';
-    alertBox.innerHTML = `
+                            <li>
+                                <div class="repo-header">
+                                    <a
+                                        href="https://aliblol.github.io/cutebot-controller/"
+                                        target="_blank"
+                                        class="repo-title"
+                                    >
+                                        Cutebot Controller
+                                    </a>
+                                    <a
+                                        href="https://github.com/aliblol/cutebot-controller"
+                                        target="_blank"
+                                    >
+                                        <img
+                                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                            alt="GitHub"
+                                            class="repo-icon"
+                                            title="See the code on GitHub"
+                                        />
+                                    </a>
+                                </div>
+                                <p>
+                                    Wireless controller code for Micro:Bit.
+                                    Sends radio signals to the Cutebot receiver
+                                    to control motion — ideal for remote driving
+                                    and paired activities.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <div class="fun-button-container">
+                <button class="fun-button" onclick="toggleShowCoolAlert()">
+                    💥 Click Me 💥
+                </button>
+            </div>
+        </main>
+
+        <script>
+            const windows = document.querySelectorAll(".content-window");
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+            windows.forEach((win) => observer.observe(win));
+
+            function toggleShowCoolAlert() {
+                const alertBox = document.createElement("div");
+                alertBox.className = "cool-alert";
+                alertBox.innerHTML = `
       <div class="alert-content">
-        <h3>🌐 SYSTEM MESSAGE</h3>
+        <h3>SYSTEM MESSAGE</h3>
         <p>✨ You’ve unlocked a secret cyber portal! ✨</p>
+        <p>Check out this site's <b><a class="code-link" target="_blank" href="https://github.com/aliblol/aliblol.github.io">code</a></b></p>
         <button onclick="this.parentElement.parentElement.remove()">Close</button>
       </div>
     `;
-    document.body.appendChild(alertBox);
-  }
-</script>
-</body>
+                document.body.appendChild(alertBox);
+            }
+            function showCodeClubWindow(event) {
+                event.preventDefault();
+                const windowEl = document.getElementById("code-club-window");
+                windowEl.classList.remove("invisible");
+                windowEl.classList.add("visible");
+            }
+            function hideCodeClubWindow() {
+                const windowEl = document.getElementById("code-club-window");
+                windowEl.classList.remove("visible");
+                windowEl.classList.add("invisible");
+            }
+        </script>
+    </body>
 </html>
