@@ -1,0 +1,296 @@
+:root{
+    /* Base / semantic palette */
+    --bg-base: #000;
+    --bg-grad-start: #000;
+    --bg-grad-end: #020024;
+
+    --text: #ffffff;
+    --rgb-text: 255, 255, 255;
+
+    /* Accents */
+    --accent-primary: rgb(132, 0, 255); /* links */
+    --rgb-accent-primary: 132, 0, 255;
+    --accent-hover: #00e5ff;
+    --accent-2: rgb(249, 209, 255); /* code link */
+    --accent-2-shadow: rgb(202, 0, 202);
+
+    /* Neon/theme */
+    --neon-cyan: #0ff;
+    --rgb-neon-cyan: 0, 255, 255;
+    --neon-magenta: #f0f;
+    --rgb-neon-magenta: 255, 0, 255;
+
+    /* Borders / ui */
+    --ui-border: #ffffff;
+
+    /* Cyber core */
+    --cyber-core: rgb(24, 24, 132);
+    --cyber-core-shadow: rgb(96, 180, 244);
+
+    /* Repo / misc */
+    --repo-text-muted: #ccf;
+
+    /* Star & nebula palette (used by background.css) */
+    --rgb-warm: 255, 245, 220;
+    --rgb-cool: 200, 230, 255;
+    --rgb-nebula-primary: 132, 0, 255;
+    --rgb-nebula-cyan: 0, 229, 255;
+    --rgb-nebula-pink: 255, 0, 150;
+
+  /* card / animated-border palette (theme-driven) */
+  --bg-card: #000000;
+  --card-text: #a2a5b3;
+
+  /* rotating border stops (use theme colours) */
+  --border-col-1: var(--neon-cyan);
+  --border-col-2: var(--accent-primary);
+  --border-col-3: var(--neon-magenta);
+  --border-col-4: var(--accent-hover);
+}
+
+body {
+    background: var(--bg-base);
+    font-family: "Lucida Console", Monaco, monospace;
+    color: var(--text);
+    padding: 0;
+    margin: 0;
+}
+
+main {
+  position: relative;
+  padding-top: 3rem;
+}
+
+a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-magenta);
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--accent-hover);
+}
+
+.invisible {
+  display: none !important;
+}
+
+.fun-button-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.window-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 1rem 2rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-window {
+    display: block;
+    align-self: flex-start;
+}
+
+.code-link {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--accent-2-shadow);
+}
+
+.code-link:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.content-window {
+    max-width: 500px;
+    margin: 3rem auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.content-window.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cyber-core {
+    padding: 1rem;
+    color: var(--cyber-core);
+    font-size: small;
+    text-shadow: 0 0 5px var(--cyber-core-shadow);
+}
+
+/* Fun button */
+.fun-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-cyan));
+    background-size: 200% auto;
+    color: black;
+    border: 2px solid var(--ui-border);
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-magenta);
+    animation: pulse 1.5s infinite, shimmer 3s linear infinite;
+    transition: transform 0.2s ease;
+}
+.fun-button:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+.alert-content {
+    background: rgba(0, 0, 0);
+    color: var(--repo-text-muted);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-family: "Lucida Console", Monaco, monospace;
+    box-shadow: inset 0 0 10px var(--neon-cyan);
+}
+
+.repo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.repo-list li {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.repo-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.repo-icon {
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 0 5px #0ff);
+}
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-magenta);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--neon-magenta), 0 0 30px var(--neon-cyan);
+    }
+    100% {
+        box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-magenta);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* theme-driven animated card / border */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.cool-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  overflow: visible;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.cool-alert button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #fff;
+  background: rgba(0,0,0,);
+  border: none;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  overflow: visible;
+  z-index: 1;
+  border-radius: 8px;
+   isolation: isolate;
+
+}
+
+/* two layered pseudo-elements:
+   ::before = blurred glow
+   ::after  = crisp rotating border */
+.cool-alert::before,
+.cool-alert::after{
+  content: "";
+  position: absolute;
+  height: 100%;
+    width: 100%;
+  pointer-events: none;
+  background-image: conic-gradient(from var(--angle), var(--border-col-1), var(--border-col-2), var(--border-col-3), var(--border-col-4), var(--border-col-1));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+  padding: 10px; /* reduce if needed */
+  box-shadow: 0 0 0 3px var(--bg-card); /* mask bleed-through */
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+/* rotate the conic gradient by changing the custom property */
+@keyframes spin{
+  from { --angle: 0deg; }
+  to   { --angle: 360deg; }
+}
+
+/* accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cool-alert::before,
+  .cool-alert::after {
+    animation: none !important;
+    filter: none;
+  }
+}
