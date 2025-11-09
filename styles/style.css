@@ -1,4 +1,4 @@
-:root{
+:root {
     /* Base / semantic palette */
     --bg-base: #000;
     --bg-grad-start: #000;
@@ -37,28 +37,20 @@
     --rgb-nebula-cyan: 0, 229, 255;
     --rgb-nebula-pink: 255, 0, 150;
 
-  /* card / animated-border palette (theme-driven) */
-  --bg-card: #000000;
-  --card-text: #a2a5b3;
+    /* card / animated-border palette (theme-driven) */
+    --bg-card: #000000;
+    --card-text: #a2a5b3;
 
-  /* rotating border stops (use theme colours) */
-  --border-col-1: var(--neon-cyan);
-  --border-col-2: var(--accent-primary);
-  --border-col-3: var(--neon-magenta);
-  --border-col-4: var(--accent-hover);
-}
-
-body {
-    background: var(--bg-base);
-    font-family: "Lucida Console", Monaco, monospace;
-    color: var(--text);
-    padding: 0;
-    margin: 0;
+    /* rotating border stops (use theme colours) */
+    --border-col-1: var(--neon-cyan);
+    --border-col-2: var(--accent-primary);
+    --border-col-3: var(--neon-magenta);
+    --border-col-4: var(--accent-hover);
 }
 
 main {
-  position: relative;
-  padding-top: 3rem;
+    position: relative;
+    padding: 1rem;
 }
 
 a {
@@ -74,23 +66,16 @@ a:hover {
 }
 
 .invisible {
-  display: none !important;
-}
-
-.fun-button-container {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
+    display: none !important;
 }
 
 .window-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  padding: 1rem 2rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 1rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .content-window {
@@ -135,7 +120,12 @@ a:hover {
     padding: 1rem 2rem;
     font-size: 1.2rem;
     font-weight: bold;
-    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-cyan));
+    background: linear-gradient(
+        90deg,
+        var(--neon-cyan),
+        var(--neon-magenta),
+        var(--neon-cyan)
+    );
     background-size: 200% auto;
     color: black;
     border: 2px solid var(--ui-border);
@@ -191,6 +181,12 @@ a:hover {
     filter: drop-shadow(0 0 5px #0ff);
 }
 
+.fun-button-container {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
 
 @keyframes pulse {
     0% {
@@ -226,19 +222,19 @@ a:hover {
 
 /* theme-driven animated card / border */
 @property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
 
 .cool-alert {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  overflow: visible;
-  transform: translate(-50%, -50%);
-  animation: fadeIn 0.5s ease-out both;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    overflow: visible;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 0.5s ease-out both;
 }
 
 .cool-alert button {
@@ -247,50 +243,59 @@ a:hover {
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 0 10px #fff;
-  background: rgba(0,0,0,);
-  border: none;
-  font-family: inherit;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  overflow: visible;
-  z-index: 1;
-  border-radius: 8px;
-   isolation: isolate;
-
+    border: none;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: visible;
+    z-index: 1;
+    border-radius: 8px;
+    isolation: isolate;
 }
 
 /* two layered pseudo-elements:
    ::before = blurred glow
    ::after  = crisp rotating border */
 .cool-alert::before,
-.cool-alert::after{
-  content: "";
-  position: absolute;
-  height: 100%;
+.cool-alert::after {
+    content: "";
+    position: absolute;
+    height: 100%;
     width: 100%;
-  pointer-events: none;
-  background-image: conic-gradient(from var(--angle), var(--border-col-1), var(--border-col-2), var(--border-col-3), var(--border-col-4), var(--border-col-1));
+    pointer-events: none;
+    background-image: conic-gradient(
+        from var(--angle),
+        var(--border-col-1),
+        var(--border-col-2),
+        var(--border-col-3),
+        var(--border-col-4),
+        var(--border-col-1)
+    );
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     z-index: -1;
-  padding: 10px; /* reduce if needed */
-  box-shadow: 0 0 0 3px var(--bg-card); /* mask bleed-through */
+    padding: 10px; /* reduce if needed */
+    box-shadow: 0 0 0 3px var(--bg-card); /* mask bleed-through */
     border-radius: 10px;
     animation: 3s spin linear infinite;
 }
 
 /* rotate the conic gradient by changing the custom property */
-@keyframes spin{
-  from { --angle: 0deg; }
-  to   { --angle: 360deg; }
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
 }
 
 /* accessibility: respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .cool-alert::before,
-  .cool-alert::after {
-    animation: none !important;
-    filter: none;
-  }
+    .cool-alert::before,
+    .cool-alert::after {
+        animation: none !important;
+        filter: none;
+    }
 }

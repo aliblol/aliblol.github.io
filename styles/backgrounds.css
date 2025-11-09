@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.sky-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    transition: background 0.5s ease;
+}
+
+/* Only show sky visuals for night sky */
+.sky-background .stars,
+.sky-background .twinkle,
+.sky-background .nebula,
+.sky-background .star {
+    display: none;
+}
+.sky-background.night-sky .stars,
+.sky-background.night-sky .twinkle,
+.sky-background.night-sky .nebula,
+.sky-background.night-sky .star {
+    display: block;
+}
+
+/* Backgrounds for each sky */
+.sky-background.night-sky {
+    background: radial-gradient(ellipse at center, #0d1b2a 0%, #000 100%);
+}
+.sky-background.day-sky {
+    background: linear-gradient(180deg, #aeefff 0%, #e0f7fa 100%);
+}
+.sky-background.sunset-sky {
+    background: linear-gradient(180deg, #ffb347 0%, #ff5e62 100%);
+}
+.sky-background.dawn-sky {
+    background: linear-gradient(180deg, #fbc2eb 0%, #a6c1ee 100%);
+}
