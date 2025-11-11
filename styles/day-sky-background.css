@@ -1,0 +1,27 @@
+.sky-background > .day-sky {
+    background: linear-gradient(180deg, #aeefff 0%, #e0f7fa 100%);
+    /* You can add more elaborate gradients or overlays here */
+    overflow: hidden;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+}
+
+/* Example animated cloud */
+.day-cloud {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    width: 180px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50% 50% 60% 60%;
+    opacity: 0.7;
+    filter: blur(1px);
+    animation: cloudDrift 30s linear infinite;
+}
+
+@keyframes cloudDrift {
+    0% { left: -200px; }
+    100% { left: 110%; }
+}

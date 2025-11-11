@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
 }
 
+/* sky container stays fixed behind content */
 .sky-background {
     position: fixed;
     top: 0;
@@ -15,33 +16,24 @@ body {
     width: 100%;
     height: 100vh;
     z-index: -1;
-    transition: background 0.5s ease;
+    pointer-events: none;
 }
 
-/* Only show sky visuals for night sky */
-.sky-background .stars,
-.sky-background .twinkle,
-.sky-background .nebula,
-.sky-background .star {
+/* Treat each child pane as a full-screen layer; hide by default */
+.sky-background > .dawn-sky,
+.sky-background > .day-sky,
+.sky-background > .sunset-sky,
+.sky-background > .night-sky {
+    position: absolute;
+    inset: 0;
     display: none;
-}
-.sky-background.night-sky .stars,
-.sky-background.night-sky .twinkle,
-.sky-background.night-sky .nebula,
-.sky-background.night-sky .star {
-    display: block;
+    overflow: hidden;
 }
 
-/* Backgrounds for each sky */
-.sky-background.night-sky {
-    background: radial-gradient(ellipse at center, #0d1b2a 0%, #000 100%);
-}
-.sky-background.day-sky {
-    background: linear-gradient(180deg, #aeefff 0%, #e0f7fa 100%);
-}
-.sky-background.sunset-sky {
-    background: linear-gradient(180deg, #ffb347 0%, #ff5e62 100%);
-}
-.sky-background.dawn-sky {
-    background: linear-gradient(180deg, #fbc2eb 0%, #a6c1ee 100%);
+/* Show the active pane */
+.sky-background > .dawn-sky.active,
+.sky-background > .day-sky.active,
+.sky-background > .sunset-sky.active,
+.sky-background > .night-sky.active {
+    display: block;
 }

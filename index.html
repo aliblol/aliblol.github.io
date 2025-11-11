@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="styles/style.css" />
         <link rel="stylesheet" href="styles/backgrounds.css" />
         <link rel="stylesheet" href="styles/night-sky-background.css" />
+        <link rel="stylesheet" href="styles/day-sky-background.css" />
+        <link rel="stylesheet" href="styles/dawn-sky-background.css" />
+        <link rel="stylesheet" href="styles/sunset-sky-background.css" />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -33,15 +36,6 @@
         <link rel="manifest" href="/site.webmanifest" />
     </head>
     <body>
-        <div class="sky-background night-sky" id="skyBackground">
-            <div class="stars"></div>
-            <div class="twinkle"></div>
-            <div class="nebula"></div>
-            <div class="star star1">✦</div>
-            <div class="star star2">✧</div>
-            <div class="star star3">✦</div>
-            <div class="star star4">✧</div>
-        </div>
         <header class="title-bar">
             <div class="title-bar-text">Welcome to My Cyber Desktop</div>
         </header>
@@ -215,6 +209,31 @@
             </button>
         </div>
 
+        <!-- sky container with child panes (night pane is active by default) -->
+        <div class="sky-background" id="skyBackground">
+            <div class="dawn-sky"></div>
+
+            <div class="day-sky"></div>
+
+            <div class="sunset-sky">
+                <div class="sunset-cloud c1"></div>
+                <div class="sunset-cloud c2"></div>
+                <div class="sunset-cloud c3"></div>
+                <div class="sunset-cloud c4"></div>
+                <div class="sunset-cloud c5"></div>
+            </div>
+
+            <div class="night-sky active">
+                <div class="stars"></div>
+                <div class="twinkle"></div>
+                <div class="nebula"></div>
+                <div class="star star1">✦</div>
+                <div class="star star2">✧</div>
+                <div class="star star3">✦</div>
+                <div class="star star4">✧</div>
+            </div>
+        </div>
+
         <script>
             const windows = document.querySelectorAll(".content-window");
             const observer = new IntersectionObserver(
@@ -262,29 +281,25 @@
                     return;
                 }
 
+                // Toggle active class on the child sky panes
                 const changeSky = (timeOfDay) => {
-                    const skyClasses = [
-                        "dawn-sky",
-                        "day-sky",
-                        "sunset-sky",
-                        "night-sky",
-                    ];
-                    skyBackground.classList.remove(...skyClasses);
-                    skyBackground.classList.add(`${timeOfDay}-sky`);
-                };
+                    const paneSelector = [
+                        ":scope > .dawn-sky",
+                        ":scope > .day-sky",
+                        ":scope > .sunset-sky",
+                        ":scope > .night-sky",
+                    ].join(", ");
+                    const panes = skyBackground.querySelectorAll(paneSelector);
+                    panes.forEach((p) => p.classList.remove("active"));
 
-                const updateSkyVisuals = (timeOfDay) => {
-                    const nightElems = skyBackground.querySelectorAll(
-                        ".stars, .twinkle, .nebula, .star"
+                    const target = skyBackground.querySelector(
+                        `:scope > .${timeOfDay}-sky`
                     );
-                    if (timeOfDay === "night") {
-                        nightElems.forEach((el) => (el.style.display = ""));
-                    } else {
-                        nightElems.forEach((el) => (el.style.display = "none"));
-                    }
+                    if (target) target.classList.add("active");
                 };
 
-                updateSkyVisuals("night");
+                // initial state (ensure pane is active)
+                changeSky("night");
 
                 timeButtons.forEach((button) => {
                     button.addEventListener("click", (e) => {
@@ -293,7 +308,6 @@
                         );
                         button.classList.add("active");
                         changeSky(button.dataset.time);
-                        updateSkyVisuals(button.dataset.time);
                     });
                 });
             });
