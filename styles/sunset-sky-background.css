@@ -53,7 +53,7 @@
     --op: 0.66; /* slightly less bright by default */
 
     position: absolute;
-    left: -40%;
+    left: 0%;
     top: var(--top);
     width: var(--w);
     height: var(--h);
@@ -111,10 +111,10 @@
     transform: scale(0.98) rotate(-4deg);
 }
 
-/* horizontal float — move cloud from left off-screen to right off-screen */
+/* horizontal float — clouds start visible across screen, then loop */
 @keyframes cloudFloat {
     0% {
-        left: -50%;
+        left: 0%;
         transform: translateY(0) scale(1);
     }
     20% {
@@ -130,51 +130,92 @@
         transform: translateY(6px) scale(0.995);
     }
     100% {
-        left: 130%;
+        left: 100%;
         transform: translateY(0) scale(1);
     }
 }
 
-/* per-cloud tweaks (different sizes, heights, opacities, speeds) */
+/* per-cloud tweaks (spread across screen at start with staggered timing) */
 .sky-background > .sunset-sky .sunset-cloud.c1 {
     --w: 420px;
     --h: 120px;
     --top: 16%;
     --dur: 110s;
-    --delay: 0s;
+    --delay: -20s;
     --op: 0.97;
+    left: -15%;
 }
 .sky-background > .sunset-sky .sunset-cloud.c2 {
     --w: 300px;
     --h: 90px;
     --top: 28%;
     --dur: 80s;
-    --delay: 8s;
+    --delay: -35s;
     --op: 0.92;
+    left: -8%;
 }
 .sky-background > .sunset-sky .sunset-cloud.c3 {
     --w: 540px;
     --h: 150px;
     --top: 40%;
     --dur: 140s;
-    --delay: 20s;
+    --delay: -60s;
     --op: 0.98;
+    left: 5%;
 }
 .sky-background > .sunset-sky .sunset-cloud.c4 {
     --w: 240px;
     --h: 70px;
     --top: 54%;
     --dur: 70s;
-    --delay: 5s;
+    --delay: -15s;
     --op: 0.88;
+    left: 15%;
 }
 .sky-background > .sunset-sky .sunset-cloud.c5 {
     --w: 180px;
     --h: 60px;
     --top: 46%;
     --dur: 95s;
-    --delay: 12s;
+    --delay: -45s;
     --op: 0.85;
+    left: 25%;
+}
+.sky-background > .sunset-sky .sunset-cloud.c6 {
+    --w: 360px;
+    --h: 100px;
+    --top: 22%;
+    --dur: 100s;
+    --delay: -50s;
+    --op: 0.90;
+    left: 38%;
+}
+.sky-background > .sunset-sky .sunset-cloud.c7 {
+    --w: 280px;
+    --h: 85px;
+    --top: 35%;
+    --dur: 90s;
+    --delay: -25s;
+    --op: 0.87;
+    left: 52%;
+}
+.sky-background > .sunset-sky .sunset-cloud.c8 {
+    --w: 320px;
+    --h: 95px;
+    --top: 50%;
+    --dur: 120s;
+    --delay: -70s;
+    --op: 0.91;
+    left: 68%;
+}
+.sky-background > .sunset-sky .sunset-cloud.c9 {
+    --w: 260px;
+    --h: 75px;
+    --top: 60%;
+    --dur: 85s;
+    --delay: -10s;
+    --op: 0.86;
+    left: 80%;
 }
 
 /* subtle color tint per-cloud for depth */
@@ -192,6 +233,18 @@
 }
 .sky-background > .sunset-sky .sunset-cloud.c5 {
     filter: blur(3.8px) saturate(0.92) hue-rotate(4deg);
+}
+.sky-background > .sunset-sky .sunset-cloud.c6 {
+    filter: blur(4.4px) saturate(1) hue-rotate(-2deg);
+}
+.sky-background > .sunset-sky .sunset-cloud.c7 {
+    filter: blur(4.1px) saturate(0.95) hue-rotate(3deg);
+}
+.sky-background > .sunset-sky .sunset-cloud.c8 {
+    filter: blur(4.8px) saturate(1.03) hue-rotate(-4deg);
+}
+.sky-background > .sunset-sky .sunset-cloud.c9 {
+    filter: blur(3.9px) saturate(0.93) hue-rotate(2deg);
 }
 
 /* accessibility: reduce motion */
