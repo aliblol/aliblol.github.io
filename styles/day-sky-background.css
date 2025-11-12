@@ -1,5 +1,5 @@
 .sky-background > .day-sky {
-    background: #87CEEB;
+    background: linear-gradient(to bottom, #4c85f0, #edf1f4);
     overflow: hidden;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -7,18 +7,40 @@
 }
 
 .day-sky .landscape {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 80vh;
-    background: url('../images/hills.png') no-repeat center top;
-    background-size: 100% auto;
-    background-position: center top;
-    z-index: 2;
-    pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/hills.png') no-repeat center bottom;
+  background-size: cover;             /* fill width/height proportionally */
+  background-position: center top;    /* keep the top visible when cropped */
+  pointer-events: none;
+  z-index: 2;
+
+  /* by default: image fills from bottom up, full height if needed */
+  max-height: 100vh;
 }
+
+/* when the viewport is much wider than tall */
+@media (min-aspect-ratio: 16/9) {
+  .day-sky .landscape {
+    height: 50vh;             /* only use half the screen’s height */
+    bottom: auto;             /* detach from bottom so crop happens at bottom */
+    top: auto;
+    background-position: center top;  /* keep important top visible */
+  }
+}
+
+/* when tall/narrow, use as much height as available (up to 50vh cap) */
+@media (max-aspect-ratio: 16/9) {
+  .day-sky .landscape {
+    height: 50vh;
+    bottom: 0;
+  }
+}
+
 
 .sky-background > .day-sky::before {
     content: '';
@@ -55,7 +77,7 @@
 }
 
 .day-sky .cloud:nth-child(2) {
-    top: 8%;
+    top: 5%;
     width: 500px;
     height: 300px;
     animation-duration: 80s;
