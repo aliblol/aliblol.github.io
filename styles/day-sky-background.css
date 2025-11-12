@@ -1,27 +1,76 @@
 .sky-background > .day-sky {
-    background: linear-gradient(180deg, #aeefff 0%, #e0f7fa 100%);
-    /* You can add more elaborate gradients or overlays here */
+    background: #87CEEB;
     overflow: hidden;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
 }
 
-/* Example animated cloud */
-.day-cloud {
+.day-sky .landscape {
     position: absolute;
-    bottom: 20%;
-    left: 10%;
-    width: 180px;
-    height: 60px;
-    background: #fff;
-    border-radius: 50% 50% 60% 60%;
-    opacity: 0.7;
-    filter: blur(1px);
-    animation: cloudDrift 30s linear infinite;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80vh;
+    background: url('../images/hills.png') no-repeat center top;
+    background-size: 100% auto;
+    background-position: center top;
+    z-index: 2;
+    pointer-events: none;
 }
 
-@keyframes cloudDrift {
-    0% { left: -200px; }
-    100% { left: 110%; }
+.sky-background > .day-sky::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.sky-background > .day-sky::after {
+    content: '';
+    display: none;
+}
+
+/* Cloud styling for day sky */
+.day-sky .cloud {
+    position: absolute;
+    width: 400px;
+    height: 240px;
+    background: url('../images/cloud.png') no-repeat center/contain;
+    opacity: 0.8;
+    animation: drift 60s linear infinite;
+    z-index: 2;
+}
+
+.day-sky .cloud:nth-child(1) {
+    top: 2%;
+    animation-duration: 60s;
+    opacity: 0.8;
+}
+
+.day-sky .cloud:nth-child(2) {
+    top: 8%;
+    width: 500px;
+    height: 300px;
+    animation-duration: 80s;
+    opacity: 0.7;
+}
+
+.day-sky .cloud:nth-child(3) {
+    top: 4%;
+    width: 380px;
+    height: 230px;
+    animation-duration: 100s;
+    opacity: 0.75;
+}
+
+@keyframes drift {
+    from { left: -500px; }
+    to { left: 100%; }
 }

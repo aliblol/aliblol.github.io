@@ -1,261 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Alice's Cyberspace</title>
-        <link rel="stylesheet" href="https://unpkg.com/98.css" />
-        <link rel="stylesheet" href="styles/style.css" />
-        <link rel="stylesheet" href="styles/backgrounds.css" />
-        <link rel="stylesheet" href="styles/night-sky-background.css" />
-        <link rel="stylesheet" href="styles/day-sky-background.css" />
-        <link rel="stylesheet" href="styles/dawn-sky-background.css" />
-        <link rel="stylesheet" href="styles/sunset-sky-background.css" />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/images/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/images/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/images/favicon-16x16.png"
-        />
-        <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="/images/favicon.ico"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-    </head>
-    <body>
-        <header class="title-bar">
-            <div class="title-bar-text">Welcome to My Cyber Desktop</div>
-        </header>
-        <main>
-            <div>
-                <div class="time-selector">
-                    <button class="time-btn" data-time="dawn">Dawn</button>
-                    <button class="time-btn" data-time="day">Day</button>
-                    <button class="time-btn" data-time="sunset">Sunset</button>
-                    <button class="time-btn active" data-time="night">
-                        Night
-                    </button>
-                </div>
-            </div>
-            <section class="window-grid">
-                <div class="window content-window">
-                    <div class="title-bar">
-                        <div class="title-bar-text">💿 About Me</div>
-                    </div>
-                    <div class="window-body cyber-core">
-                        <h2>👾 Alice.exe</h2>
-                        <p>Living in the future since 2001.</p>
-                    </div>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alice's Cyberspace</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/clouds.css" />
+    <link rel="stylesheet" href="styles/backgrounds.css" />
+    <link rel="stylesheet" href="styles/night-sky-background.css" />
+    <link rel="stylesheet" href="styles/day-sky-background.css" />
+    <link rel="stylesheet" href="styles/dawn-sky-background.css" />
+    <link rel="stylesheet" href="styles/sunset-sky-background.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <header class="title-bar">
+      <div class="title-bar-text">Welcome to My Cyber Desktop</div>
+    </header>
+    <main>
+      <div>
+        <div class="time-selector">
+          <button class="time-btn" data-time="dawn">Dawn</button>
+          <button class="time-btn" data-time="day">Day</button>
+          <button class="time-btn" data-time="sunset">Sunset</button>
+          <button class="time-btn active" data-time="night">Night</button>
+        </div>
+      </div>
+      <section class="window-grid">
+        <div class="window content-window">
+          <div class="title-bar">
+            <div class="title-bar-text">💿 About Me</div>
+          </div>
+          <div class="window-body cyber-core">
+            <h2>👾 Alice.exe</h2>
+            <p>Living in the future since 2001.</p>
+          </div>
+        </div>
 
-                <div class="window content-window">
-                    <div class="title-bar">
-                        <div class="title-bar-text">📁 Projects</div>
-                    </div>
-                    <div class="window-body cyber-core">
-                        <ul>
-                            <li>
-                                <strong>
-                                    <a
-                                        href="#"
-                                        onclick="showCodeClubWindow(event)"
-                                    >
-                                        Code Club </a
-                                    >:</strong
-                                >
-                                BBC Micro:Bit lesson resources for primary
-                                school children
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div
-                    class="window content-window invisible"
-                    id="code-club-window"
+        <div class="window content-window">
+          <div class="title-bar">
+            <div class="title-bar-text">📁 Projects</div>
+          </div>
+          <div class="window-body cyber-core">
+            <ul>
+              <li>
+                <strong>
+                  <a href="#" onclick="showCodeClubWindow(event)"> Code Club </a
+                  >:</strong
                 >
-                    <div class="title-bar">
-                        <div class="title-bar-text">🧠 Code Club Resources</div>
-                        <div class="title-bar-controls">
-                            <button
-                                aria-label="Close"
-                                onclick="hideCodeClubWindow()"
-                            >
-                                ✖
-                            </button>
-                        </div>
-                    </div>
+                BBC Micro:Bit lesson resources for primary school children
+              </li>
+            </ul>
+          </div>
+        </div>
 
-                    <div class="window-body cyber-core">
-                        <ul class="repo-list">
-                            <li>
-                                <div class="repo-header">
-                                    <a
-                                        href="https://aliblol.github.io/code-club-2025-6/"
-                                        target="_blank"
-                                        class="repo-title"
-                                    >
-                                        Micro:Bit Cutebot Roadmap
-                                    </a>
-                                    <a
-                                        href="https://github.com/aliblol/code-club-2025-6"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                                            alt="GitHub"
-                                            class="repo-icon"
-                                            title="See the code on GitHub"
-                                        />
-                                    </a>
-                                </div>
-                                <p>
-                                    A full-term plan for teaching robotics with
-                                    <a
-                                        href="https://microbit.org"
-                                        target="_blank"
-                                    >
-                                        BBC Micro:Bit
-                                    </a>
-                                    and
-                                    <a
-                                        href="https://www.elecfreaks.com/learn-en/microbitKit/smart_cutebot/cutebot_car.html"
-                                        target="_blank"
-                                    >
-                                        ElecFreaks Cutebot </a
-                                    >. Includes progressive challenges,
-                                    classroom tips, and extension ideas.
-                                </p>
-                            </li>
+        <div class="window content-window invisible" id="code-club-window">
+          <div class="title-bar">
+            <div class="title-bar-text">🧠 Code Club Resources</div>
+            <div class="title-bar-controls">
+              <button aria-label="Close" onclick="hideCodeClubWindow()">
+                ✖
+              </button>
+            </div>
+          </div>
 
-                            <li>
-                                <div class="repo-header">
-                                    <a
-                                        href="https://aliblol.github.io/cutebot-receiver/"
-                                        target="_blank"
-                                        class="repo-title"
-                                    >
-                                        Cutebot Receiver
-                                    </a>
-                                    <a
-                                        href="https://github.com/aliblol/cutebot-receiver"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                                            alt="GitHub"
-                                            class="repo-icon"
-                                            title="See the code on GitHub"
-                                        />
-                                    </a>
-                                </div>
-                                <p>
-                                    Micro:Bit v2 code for the Cutebot robot.
-                                    Handles basic movement (forward, reverse,
-                                    turning), LED lights, and sound effects —
-                                    perfect for beginners.
-                                </p>
-                            </li>
-
-                            <li>
-                                <div class="repo-header">
-                                    <a
-                                        href="https://aliblol.github.io/cutebot-controller/"
-                                        target="_blank"
-                                        class="repo-title"
-                                    >
-                                        Cutebot Controller
-                                    </a>
-                                    <a
-                                        href="https://github.com/aliblol/cutebot-controller"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                                            alt="GitHub"
-                                            class="repo-icon"
-                                            title="See the code on GitHub"
-                                        />
-                                    </a>
-                                </div>
-                                <p>
-                                    Wireless controller code for Micro:Bit.
-                                    Sends radio signals to the Cutebot receiver
-                                    to control motion — ideal for remote driving
-                                    and paired activities.
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
+          <div class="window-body cyber-core">
+            <ul class="repo-list">
+              <li>
+                <div class="repo-header">
+                  <a
+                    href="https://aliblol.github.io/code-club-2025-6/"
+                    target="_blank"
+                    class="repo-title"
+                  >
+                    Micro:Bit Cutebot Roadmap
+                  </a>
+                  <a
+                    href="https://github.com/aliblol/code-club-2025-6"
+                    target="_blank"
+                  >
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                      alt="GitHub"
+                      class="repo-icon"
+                      title="See the code on GitHub"
+                    />
+                  </a>
                 </div>
-            </section>
-        </main>
-        <div class="fun-button-container">
-            <button class="fun-button" onclick="toggleShowCoolAlert()">
-                💥 Click Me 💥
-            </button>
+                <p>
+                  A full-term plan for teaching robotics with
+                  <a href="https://microbit.org" target="_blank">
+                    BBC Micro:Bit
+                  </a>
+                  and
+                  <a
+                    href="https://www.elecfreaks.com/learn-en/microbitKit/smart_cutebot/cutebot_car.html"
+                    target="_blank"
+                  >
+                    ElecFreaks Cutebot </a
+                  >. Includes progressive challenges, classroom tips, and
+                  extension ideas.
+                </p>
+              </li>
+
+              <li>
+                <div class="repo-header">
+                  <a
+                    href="https://aliblol.github.io/cutebot-receiver/"
+                    target="_blank"
+                    class="repo-title"
+                  >
+                    Cutebot Receiver
+                  </a>
+                  <a
+                    href="https://github.com/aliblol/cutebot-receiver"
+                    target="_blank"
+                  >
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                      alt="GitHub"
+                      class="repo-icon"
+                      title="See the code on GitHub"
+                    />
+                  </a>
+                </div>
+                <p>
+                  Micro:Bit v2 code for the Cutebot robot. Handles basic
+                  movement (forward, reverse, turning), LED lights, and sound
+                  effects — perfect for beginners.
+                </p>
+              </li>
+
+              <li>
+                <div class="repo-header">
+                  <a
+                    href="https://aliblol.github.io/cutebot-controller/"
+                    target="_blank"
+                    class="repo-title"
+                  >
+                    Cutebot Controller
+                  </a>
+                  <a
+                    href="https://github.com/aliblol/cutebot-controller"
+                    target="_blank"
+                  >
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                      alt="GitHub"
+                      class="repo-icon"
+                      title="See the code on GitHub"
+                    />
+                  </a>
+                </div>
+                <p>
+                  Wireless controller code for Micro:Bit. Sends radio signals to
+                  the Cutebot receiver to control motion — ideal for remote
+                  driving and paired activities.
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
+      </section>
+    </main>
+    <div class="fun-button-container">
+      <button class="fun-button" onclick="toggleShowCoolAlert()">
+        💥 Click Me 💥
+      </button>
+    </div>
 
-        <!-- sky container with child panes (night pane is active by default) -->
-        <div class="sky-background" id="skyBackground">
-            <div class="dawn-sky"></div>
+    <!-- sky container with child panes (night pane is active by default) -->
+    <div class="sky-background" id="skyBackground">
+      <div class="dawn-sky"></div>
 
-            <div class="day-sky"></div>
+      <div class="day-sky">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="landscape"></div>
+      </div>
 
-            <div class="sunset-sky">
-                <div class="sunset-cloud c1"></div>
-                <div class="sunset-cloud c2"></div>
-                <div class="sunset-cloud c3"></div>
-                <div class="sunset-cloud c4"></div>
-                <div class="sunset-cloud c5"></div>
-                <div class="sunset-cloud c6"></div>
-                <div class="sunset-cloud c7"></div>
-                <div class="sunset-cloud c8"></div>
-                <div class="sunset-cloud c9"></div>
-            </div>
+      <div class="sunset-sky">
+        <div class="sun"></div>
+        <canvas id="cloudCanvasSimple"></canvas>
+      </div>
 
-            <div class="night-sky active">
-                <div class="stars"></div>
-                <div class="twinkle"></div>
-                <div class="nebula"></div>
-                <div class="star star1">✦</div>
-                <div class="star star2">✧</div>
-                <div class="star star3">✦</div>
-                <div class="star star4">✧</div>
-            </div>
-        </div>
+      <div class="night-sky active">
+        <div class="stars"></div>
+        <div class="twinkle"></div>
+        <div class="nebula"></div>
+        <div class="star star1">✦</div>
+        <div class="star star2">✧</div>
+        <div class="star star3">✦</div>
+        <div class="star star4">✧</div>
+      </div>
+    </div>
 
-        <script>
-            const windows = document.querySelectorAll(".content-window");
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("visible");
-                        }
-                    });
-                },
-                { threshold: 0.1 }
-            );
-            windows.forEach((win) => observer.observe(win));
+    <script src="scripts/clouds.js"></script>
+    <script>
+      const windows = document.querySelectorAll(".content-window");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      windows.forEach((win) => observer.observe(win));
 
-            function toggleShowCoolAlert() {
-                const alertBox = document.createElement("div");
-                alertBox.className = "cool-alert";
-                alertBox.innerHTML = `
+      function toggleShowCoolAlert() {
+        const alertBox = document.createElement("div");
+        alertBox.className = "cool-alert";
+        alertBox.innerHTML = `
       <div class="alert-content">
         <h3>SYSTEM MESSAGE</h3>
         <p>✨ You’ve unlocked a secret cyber portal! ✨</p>
@@ -263,58 +241,56 @@
         <button onclick="this.parentElement.parentElement.remove()">Close</button>
       </div>
     `;
-                document.body.appendChild(alertBox);
-            }
-            function showCodeClubWindow(event) {
-                event.preventDefault();
-                const windowEl = document.getElementById("code-club-window");
-                windowEl.classList.remove("invisible");
-                windowEl.classList.add("visible");
-            }
-            function hideCodeClubWindow() {
-                const windowEl = document.getElementById("code-club-window");
-                windowEl.classList.remove("visible");
-                windowEl.classList.add("invisible");
-            }
-            document.addEventListener("DOMContentLoaded", () => {
-                const skyBackground = document.getElementById("skyBackground");
-                const timeButtons = document.querySelectorAll(".time-btn");
+        document.body.appendChild(alertBox);
+      }
+      function showCodeClubWindow(event) {
+        event.preventDefault();
+        const windowEl = document.getElementById("code-club-window");
+        windowEl.classList.remove("invisible");
+        windowEl.classList.add("visible");
+      }
+      function hideCodeClubWindow() {
+        const windowEl = document.getElementById("code-club-window");
+        windowEl.classList.remove("visible");
+        windowEl.classList.add("invisible");
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        const skyBackground = document.getElementById("skyBackground");
+        const timeButtons = document.querySelectorAll(".time-btn");
 
-                if (!skyBackground || !timeButtons.length) {
-                    console.error("Required elements not found");
-                    return;
-                }
+        if (!skyBackground || !timeButtons.length) {
+          console.error("Required elements not found");
+          return;
+        }
 
-                // Toggle active class on the child sky panes
-                const changeSky = (timeOfDay) => {
-                    const paneSelector = [
-                        ":scope > .dawn-sky",
-                        ":scope > .day-sky",
-                        ":scope > .sunset-sky",
-                        ":scope > .night-sky",
-                    ].join(", ");
-                    const panes = skyBackground.querySelectorAll(paneSelector);
-                    panes.forEach((p) => p.classList.remove("active"));
+        // Toggle active class on the child sky panes
+        const changeSky = (timeOfDay) => {
+          const paneSelector = [
+            ":scope > .dawn-sky",
+            ":scope > .day-sky",
+            ":scope > .sunset-sky",
+            ":scope > .night-sky",
+          ].join(", ");
+          const panes = skyBackground.querySelectorAll(paneSelector);
+          panes.forEach((p) => p.classList.remove("active"));
 
-                    const target = skyBackground.querySelector(
-                        `:scope > .${timeOfDay}-sky`
-                    );
-                    if (target) target.classList.add("active");
-                };
+          const target = skyBackground.querySelector(
+            `:scope > .${timeOfDay}-sky`
+          );
+          if (target) target.classList.add("active");
+        };
 
-                // initial state (ensure pane is active)
-                changeSky("night");
+        // initial state (ensure pane is active)
+        changeSky("night");
 
-                timeButtons.forEach((button) => {
-                    button.addEventListener("click", (e) => {
-                        timeButtons.forEach((btn) =>
-                            btn.classList.remove("active")
-                        );
-                        button.classList.add("active");
-                        changeSky(button.dataset.time);
-                    });
-                });
-            });
-        </script>
-    </body>
+        timeButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            timeButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+            changeSky(button.dataset.time);
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
