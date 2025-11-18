@@ -12,54 +12,26 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 100%;
+  height: 50vh;
   background: url('../images/hills.png') no-repeat center bottom;
-  background-size: cover;             /* fill width/height proportionally */
-  background-position: center top;    /* keep the top visible when cropped */
+  background-size: cover;
+  background-position: center top;
   pointer-events: none;
   z-index: 2;
-
-  /* by default: image fills from bottom up, full height if needed */
   max-height: 100vh;
 }
 
-/* when the viewport is much wider than tall */
-@media (min-aspect-ratio: 16/9) {
-  .day-sky .landscape {
-    height: 50vh;             /* only use half the screen’s height */
-    bottom: auto;             /* detach from bottom so crop happens at bottom */
-    top: auto;
-    background-position: center top;  /* keep important top visible */
-  }
+.day-sky .sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  padding-bottom: 100px;
+  z-index: 1;
 }
 
-/* when tall/narrow, use as much height as available (up to 50vh cap) */
-@media (max-aspect-ratio: 16/9) {
-  .day-sky .landscape {
-    height: 50vh;
-    bottom: 0;
-  }
-}
-
-
-.sky-background > .day-sky::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60%;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05));
-    z-index: 1;
-    pointer-events: none;
-}
-
-.sky-background > .day-sky::after {
-    content: '';
-    display: none;
-}
-
-/* Cloud styling for day sky */
 .day-sky .cloud {
     position: absolute;
     width: 400px;
@@ -71,25 +43,29 @@
 }
 
 .day-sky .cloud:nth-child(1) {
-    top: 2%;
-    animation-duration: 60s;
+    animation-duration: 40s;
     opacity: 0.8;
 }
 
 .day-sky .cloud:nth-child(2) {
-    top: 5%;
     width: 500px;
     height: 300px;
-    animation-duration: 80s;
+    animation-duration: 60s;
     opacity: 0.7;
 }
 
 .day-sky .cloud:nth-child(3) {
-    top: 4%;
     width: 380px;
     height: 230px;
-    animation-duration: 100s;
+    animation-duration: 80s;
     opacity: 0.75;
+}
+
+.day-sky .cloud:nth-child(4) {
+    width: 420px;
+    height: 250px;
+    animation-duration: 100s;
+    opacity: 0.65;
 }
 
 @keyframes drift {

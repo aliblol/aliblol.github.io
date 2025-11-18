@@ -12,17 +12,6 @@ body, html {
     min-height: 100vh;
 }
 
-.sky {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, #ff9966, #ff5e62); /* sunset gradient */
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-}
-
-/* sky container stays fixed behind content */
 .sky-background {
     position: fixed;
     top: 0;
