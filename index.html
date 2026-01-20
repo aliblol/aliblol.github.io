@@ -190,15 +190,28 @@
 
     <!-- sky container with child panes (night pane is active by default) -->
     <div class="sky-background" id="skyBackground">
-      <div class="dawn-sky"></div>
+      <div class="dawn-sky">
+        <div class="sun"></div>
+        <div class="fogwrapper">
+          <div id="foglayer_01" class="fog">
+            <div class="image01"></div>
+            <div class="image02"></div>
+          </div>
+          <div id="foglayer_02" class="fog">
+            <div class="image01"></div>
+            <div class="image02"></div>
+          </div>
+          <div id="foglayer_03" class="fog">
+            <div class="image01"></div>
+            <div class="image02"></div>
+          </div>
+        </div>
+      </div>
 
       <div class="day-sky">
-        <div class="sky">
-          <div class="cloud"></div>
-          <div class="cloud"></div>
-          <div class="cloud"></div>
-          <div class="cloud"></div>
-        </div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
         <div class="landscape"></div>
       </div>
 
