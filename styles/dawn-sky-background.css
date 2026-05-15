@@ -41,9 +41,9 @@
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    background: radial-gradient(circle, #faeac5, #ffcf7d 70%);
+    background: radial-gradient(circle, #faeac5, #ffdfbf 70%);
     filter: blur(2px);
-    box-shadow: 0 0 80px rgba(255, 180, 80, 0.8);
+    box-shadow: 0 0 80px rgba(255, 198, 124, 0.8);
     animation: sunRise 10s ease-in forwards;
 }
 
@@ -53,7 +53,7 @@
         opacity: 0.8;
     }
     100% {
-        bottom: 25%;
+        bottom: 40%;
         opacity: 1;
     }
 }

@@ -48,6 +48,31 @@
     --border-col-4: var(--accent-hover);
 }
 
+/* Custom glowing cursor - theme variants */
+html[data-theme="night"] {
+    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="%2300ffff" filter="drop-shadow(0 0 4px %2300ffff)"/><path d="M12 4 L12 8 M12 16 L12 20 M4 12 L8 12 M16 12 L20 12" stroke="%2300ffff" stroke-width="1" filter="drop-shadow(0 0 2px %2300ffff)"/></svg>') 12 12, auto;
+}
+
+html[data-theme="dawn"] {
+    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%23ffc700" filter="drop-shadow(0 0 6px %23ffaa00)"/><circle cx="12" cy="12" r="7" fill="none" stroke="%23ffaa00" stroke-width="0.5" opacity="0.6"/></svg>') 12 12, auto;
+}
+
+html[data-theme="day"] {
+    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%234c85f0" filter="drop-shadow(0 0 4px %234c85f0)"/><path d="M12 2 L12 5 M12 19 L12 22 M2 12 L5 12 M19 12 L22 12 M5 5 L7 7 M17 17 L19 19 M19 5 L17 7 M7 17 L5 19" stroke="%234c85f0" stroke-width="0.8" stroke-linecap="round"/></svg>') 12 12, auto;
+}
+
+html[data-theme="sunset"] {
+    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%23ff6b35" filter="drop-shadow(0 0 6px %23ff8a3d)"/><circle cx="12" cy="12" r="7" fill="none" stroke="%23ff8a3d" stroke-width="0.5" opacity="0.6"/><path d="M6 16 Q12 18 18 16" stroke="%23ffc700" stroke-width="1" opacity="0.5" stroke-linecap="round"/></svg>') 12 12, auto;
+}
+
+/* Cursor trail particle styling */
+.cursor-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+}
+
 main {
     position: relative;
     padding: 1rem;
