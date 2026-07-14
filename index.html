@@ -41,9 +41,9 @@
     <main>
       <div>
         <div class="time-selector">
-          <button class="time-btn" data-time="dawn">Dawn</button>
+          <button class="time-btn" data-time="dawn" disabled>Dawn</button>
           <button class="time-btn" data-time="day">Day</button>
-          <button class="time-btn" data-time="sunset">Sunset</button>
+          <button class="time-btn" data-time="sunset" disabled>Sunset</button>
           <button class="time-btn active" data-time="night">Night</button>
         </div>
       </div>
@@ -312,6 +312,9 @@
 
         timeButtons.forEach((button) => {
           button.addEventListener("click", (e) => {
+            if (button.disabled) {
+              return;
+            }
             timeButtons.forEach((btn) => btn.classList.remove("active"));
             button.classList.add("active");
             changeSky(button.dataset.time);
