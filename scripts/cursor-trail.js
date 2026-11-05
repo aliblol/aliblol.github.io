@@ -8,9 +8,9 @@ const cursorTrail = {
   
   // Theme-specific particle colors
   themeColors: {
-    night: ['#00ffff', '#ff00ff', '#8400ff'],
+    night: ['#ffffff', '#b3f5ff', '#00ffff'],
     dawn: ['#ffc700', '#ffaa00', '#ff9500'],
-    day: ['#4c85f0', '#00bfff', '#87ceeb'],
+    day: ['#ffeb3b', '#ffd54f', '#fff176'],
     sunset: ['#ff6b35', '#ff8a3d', '#ffc700']
   },
   

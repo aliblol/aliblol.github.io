@@ -30,8 +30,10 @@ test("has accessible landmarks, headings, and default content", async ({
     page.getByRole("heading", { level: 1, name: "Welcome to My Cyber Desktop" })
   ).toBeVisible();
   await expect(
-    page.getByRole("region", { name: "About and projects" })
+    page.getByRole("region", { name: "About and Code Club resources" })
   ).toBeVisible();
+  await expect(page.locator("#code-club-window")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "📁 Projects" })).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Night" })).toHaveAttribute(
     "aria-pressed",
     "true"
@@ -53,27 +55,16 @@ test("theme buttons announce the selected theme", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "day");
 });
 
-test("Code Club resources can be opened and closed with focus restored", async ({
-  page,
-}) => {
-  const openButton = page.getByRole("button", {
-    name: "Code Club",
-    exact: true,
-  });
-  await openButton.click();
-
-  const resources = page.getByRole("region", { name: "Code Club Resources" });
+test("Code Club resources are shown automatically", async ({ page }) => {
+  const resources = page.locator("#code-club-window");
   await expect(resources).toBeVisible();
-  await expect(openButton).toHaveAttribute("aria-expanded", "true");
+  await expect(
+    page.getByRole("button", { name: "Code Club", exact: true })
+  ).toHaveCount(0);
   await expect(
     page.getByRole("button", { name: "Close Code Club Resources" })
-  ).toBeFocused();
+  ).toHaveCount(0);
   await expectAccessible(page);
-
-  await page.getByRole("button", { name: "Close Code Club Resources" }).click();
-  await expect(resources).toBeHidden();
-  await expect(openButton).toHaveAttribute("aria-expanded", "false");
-  await expect(openButton).toBeFocused();
 });
 
 test("secret message is a keyboard-dismissible modal dialog", async ({
