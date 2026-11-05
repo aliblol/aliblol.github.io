@@ -8,8 +8,8 @@
     --rgb-text: 255, 255, 255;
 
     /* Accents */
-    --accent-primary: rgb(132, 0, 255); /* links */
-    --rgb-accent-primary: 132, 0, 255;
+    --accent-primary: rgb(77, 0, 128); /* links */
+    --rgb-accent-primary: 77, 0, 128;
     --accent-hover: #00e5ff;
     --accent-2: rgb(249, 209, 255); /* code link */
     --accent-2-shadow: rgb(202, 0, 202);
@@ -50,19 +50,17 @@
 
 /* Custom glowing cursor - theme variants */
 html[data-theme="night"] {
-    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="%2300ffff" filter="drop-shadow(0 0 4px %2300ffff)"/><path d="M12 4 L12 8 M12 16 L12 20 M4 12 L8 12 M16 12 L20 12" stroke="%2300ffff" stroke-width="1" filter="drop-shadow(0 0 2px %2300ffff)"/></svg>') 12 12, auto;
-}
-
-html[data-theme="dawn"] {
-    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%23ffc700" filter="drop-shadow(0 0 6px %23ffaa00)"/><circle cx="12" cy="12" r="7" fill="none" stroke="%23ffaa00" stroke-width="0.5" opacity="0.6"/></svg>') 12 12, auto;
+    cursor:
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="%2300ffff" filter="drop-shadow(0 0 4px %2300ffff)"/><path d="M12 4 L12 8 M12 16 L12 20 M4 12 L8 12 M16 12 L20 12" stroke="%2300ffff" stroke-width="1" filter="drop-shadow(0 0 2px %2300ffff)"/></svg>')
+            12 12,
+        auto;
 }
 
 html[data-theme="day"] {
-    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%234c85f0" filter="drop-shadow(0 0 4px %234c85f0)"/><path d="M12 2 L12 5 M12 19 L12 22 M2 12 L5 12 M19 12 L22 12 M5 5 L7 7 M17 17 L19 19 M19 5 L17 7 M7 17 L5 19" stroke="%234c85f0" stroke-width="0.8" stroke-linecap="round"/></svg>') 12 12, auto;
-}
-
-html[data-theme="sunset"] {
-    cursor: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%23ff6b35" filter="drop-shadow(0 0 6px %23ff8a3d)"/><circle cx="12" cy="12" r="7" fill="none" stroke="%23ff8a3d" stroke-width="0.5" opacity="0.6"/><path d="M6 16 Q12 18 18 16" stroke="%23ffc700" stroke-width="1" opacity="0.5" stroke-linecap="round"/></svg>') 12 12, auto;
+    cursor:
+        url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%234c85f0" filter="drop-shadow(0 0 4px %234c85f0)"/><path d="M12 2 L12 5 M12 19 L12 22 M2 12 L5 12 M19 12 L22 12 M5 5 L7 7 M17 17 L19 19 M19 5 L17 7 M7 17 L5 19" stroke="%234c85f0" stroke-width="0.8" stroke-linecap="round"/></svg>')
+            12 12,
+        auto;
 }
 
 /* Cursor trail particle styling */
@@ -88,6 +86,28 @@ a {
 a:hover {
     text-decoration: underline;
     color: var(--accent-hover);
+}
+
+.project-toggle {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #4d0080;
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.project-toggle:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent-hover);
+    outline-offset: 3px;
 }
 
 .invisible {
@@ -125,7 +145,9 @@ a:hover {
     margin: 3rem auto;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition:
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
 }
 .content-window.visible {
     opacity: 1;
@@ -156,8 +178,12 @@ a:hover {
     border: 2px solid var(--ui-border);
     border-radius: 8px;
     text-decoration: none;
-    box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-magenta);
-    animation: pulse 1.5s infinite, shimmer 3s linear infinite;
+    box-shadow:
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-magenta);
+    animation:
+        pulse 1.5s infinite,
+        shimmer 3s linear infinite;
     transition: transform 0.2s ease;
 }
 .fun-button:hover {
@@ -215,13 +241,19 @@ a:hover {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-magenta);
+        box-shadow:
+            0 0 10px var(--neon-cyan),
+            0 0 20px var(--neon-magenta);
     }
     50% {
-        box-shadow: 0 0 20px var(--neon-magenta), 0 0 30px var(--neon-cyan);
+        box-shadow:
+            0 0 20px var(--neon-magenta),
+            0 0 30px var(--neon-cyan);
     }
     100% {
-        box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-magenta);
+        box-shadow:
+            0 0 10px var(--neon-cyan),
+            0 0 20px var(--neon-magenta);
     }
 }
 
@@ -256,10 +288,20 @@ a:hover {
     position: fixed;
     top: 50%;
     left: 50%;
-    border-radius: 10px;
+    width: max-content;
+    max-width: calc(100vw - 2rem);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
     overflow: visible;
     transform: translate(-50%, -50%);
     animation: fadeIn 0.5s ease-out both;
+}
+
+.cool-alert::backdrop {
+    background: rgb(0 0 0 / 65%);
 }
 
 .cool-alert button {
@@ -318,9 +360,80 @@ a:hover {
 
 /* accessibility: respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
+    .content-window,
+    .fun-button,
+    .cool-alert {
+        animation: none !important;
+        transition: none !important;
+    }
+
     .cool-alert::before,
     .cool-alert::after {
         animation: none !important;
         filter: none;
+    }
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: 0.75rem;
+    }
+
+    .title-bar-text {
+        white-space: normal;
+    }
+
+    .time-selector {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .time-btn {
+        min-height: 44px;
+    }
+
+    .window-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+        padding: 0.5rem 0.25rem 1rem;
+    }
+
+    .content-window {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .repo-list li {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+    }
+
+    .repo-header {
+        flex-wrap: wrap;
+    }
+
+    .repo-list p {
+        overflow-wrap: anywhere;
+    }
+
+    .fun-button-container {
+        position: static;
+        display: flex;
+        justify-content: center;
+        padding: 0 0.75rem 1rem;
+    }
+
+    .fun-button {
+        max-width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+
+    .cool-alert {
+        width: calc(100vw - 2rem);
     }
 }

@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="styles/backgrounds.css" />
     <link rel="stylesheet" href="styles/night-sky-background.css" />
     <link rel="stylesheet" href="styles/day-sky-background.css" />
-    <link rel="stylesheet" href="styles/dawn-sky-background.css" />
-    <link rel="stylesheet" href="styles/sunset-sky-background.css" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -36,53 +34,34 @@
   </head>
   <body>
     <header class="title-bar">
-      <div class="title-bar-text">Welcome to My Cyber Desktop</div>
+      <h1 class="title-bar-text">Welcome to My Cyber Desktop</h1>
     </header>
     <main>
       <div>
-        <div class="time-selector">
-          <button class="time-btn" data-time="dawn" disabled>Dawn</button>
-          <button class="time-btn" data-time="day">Day</button>
-          <button class="time-btn" data-time="sunset" disabled>Sunset</button>
-          <button class="time-btn active" data-time="night">Night</button>
+        <div class="time-selector" role="group" aria-label="Choose background theme">
+          <button class="time-btn" type="button" data-time="day" aria-pressed="false">Day</button>
+          <button class="time-btn active" type="button" data-time="night" aria-pressed="true">Night</button>
         </div>
       </div>
-      <section class="window-grid">
-        <div class="window content-window">
+      <section class="window-grid" aria-label="About and Code Club resources">
+        <section class="window content-window" aria-labelledby="about-heading">
           <div class="title-bar">
-            <div class="title-bar-text">💿 About Me</div>
+            <h2 class="title-bar-text" id="about-heading">💿 About Me</h2>
           </div>
           <div class="window-body cyber-core">
-            <h2>👾 Alice.exe</h2>
-            <p>Living in the future since 2001.</p>
+            <h3>👾 Alice.exe</h3>
+            <p>I like building things.</p>
           </div>
-        </div>
+        </section>
 
-        <div class="window content-window">
+        <section
+          class="window content-window visible"
+          id="code-club-window"
+          aria-labelledby="code-club-heading"
+          aria-hidden="false"
+        >
           <div class="title-bar">
-            <div class="title-bar-text">📁 Projects</div>
-          </div>
-          <div class="window-body cyber-core">
-            <ul>
-              <li>
-                <strong>
-                  <a href="#" onclick="showCodeClubWindow(event)"> Code Club </a
-                  >:</strong
-                >
-                BBC Micro:Bit lesson resources for primary school children
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="window content-window invisible" id="code-club-window">
-          <div class="title-bar">
-            <div class="title-bar-text">🧠 Code Club Resources</div>
-            <div class="title-bar-controls">
-              <button aria-label="Close" onclick="hideCodeClubWindow()">
-                ✖
-              </button>
-            </div>
+            <h2 class="title-bar-text" id="code-club-heading">🧠 Code Club Resources</h2>
           </div>
 
           <div class="window-body cyber-core">
@@ -94,7 +73,7 @@
                     target="_blank"
                     class="repo-title"
                   >
-                    Code Club Missions (WIP)
+                    Code Club Missions
                   </a>
                   <a
                     href="https://github.com/aliblol/code-club-missions"
@@ -147,7 +126,7 @@
                 <p>
                   Micro:Bit v2 code for the Cutebot robot. Handles basic
                   movement (forward, reverse, turning), LED lights, and sound
-                  effects — perfect for beginners.
+                  effects.
                 </p>
               </li>
 
@@ -174,57 +153,27 @@
                 </div>
                 <p>
                   Wireless controller code for Micro:Bit. Sends radio signals to
-                  the Cutebot receiver to control motion — ideal for remote
-                  driving and paired activities.
+                  the Cutebot receiver to control motion.
                 </p>
               </li>
             </ul>
           </div>
-        </div>
+        </section>
       </section>
     </main>
     <div class="fun-button-container">
-      <button class="fun-button" onclick="toggleShowCoolAlert()">
+      <button class="fun-button" type="button" onclick="toggleShowCoolAlert()">
         💥 Click Me 💥
       </button>
     </div>
 
     <!-- sky container with child panes (night pane is active by default) -->
-    <div class="sky-background" id="skyBackground">
-      <div class="dawn-sky">
-        <div class="sun"></div>
-        <div class="fogwrapper">
-          <div id="foglayer_01" class="fog">
-            <div class="image01"></div>
-            <div class="image02"></div>
-          </div>
-          <div id="foglayer_02" class="fog">
-            <div class="image01"></div>
-            <div class="image02"></div>
-          </div>
-          <div id="foglayer_03" class="fog">
-            <div class="image01"></div>
-            <div class="image02"></div>
-          </div>
-        </div>
-      </div>
-
+    <div class="sky-background" id="skyBackground" aria-hidden="true">
       <div class="day-sky">
         <div class="cloud"></div>
         <div class="cloud"></div>
         <div class="cloud"></div>
         <div class="landscape"></div>
-      </div>
-
-      <div class="sunset-sky">
-        <div class="sun"></div>
-        <div class="water">
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-        </div>
-        <div class="shoreline"></div>
-        <canvas id="cloudCanvasSimple"></canvas>
       </div>
 
       <div class="night-sky active">
@@ -255,28 +204,28 @@
       windows.forEach((win) => observer.observe(win));
 
       function toggleShowCoolAlert() {
-        const alertBox = document.createElement("div");
+        const trigger = document.activeElement;
+        const alertBox = document.createElement("dialog");
         alertBox.className = "cool-alert";
+        alertBox.setAttribute("aria-labelledby", "cool-alert-title");
         alertBox.innerHTML = `
       <div class="alert-content">
-        <h3>SYSTEM MESSAGE</h3>
+        <h2 id="cool-alert-title">SYSTEM MESSAGE</h2>
         <p>✨ You’ve unlocked a secret cyber portal! ✨</p>
-        <p>Check out this site's <b><a class="code-link" target="_blank" href="https://github.com/aliblol/aliblol.github.io">code</a></b></p>
-        <button onclick="this.parentElement.parentElement.remove()">Close</button>
+        <p>Check out this site's <b><a class="code-link" target="_blank" rel="noopener noreferrer" href="https://github.com/aliblol/aliblol.github.io">code</a></b></p>
+        <button type="button">Close</button>
       </div>
     `;
         document.body.appendChild(alertBox);
-      }
-      function showCodeClubWindow(event) {
-        event.preventDefault();
-        const windowEl = document.getElementById("code-club-window");
-        windowEl.classList.remove("invisible");
-        windowEl.classList.add("visible");
-      }
-      function hideCodeClubWindow() {
-        const windowEl = document.getElementById("code-club-window");
-        windowEl.classList.remove("visible");
-        windowEl.classList.add("invisible");
+        alertBox.querySelector("button").addEventListener("click", () => {
+          alertBox.close();
+        });
+        alertBox.addEventListener("close", () => {
+          alertBox.remove();
+          trigger.focus();
+        });
+        alertBox.showModal();
+        alertBox.querySelector("button").focus();
       }
       document.addEventListener("DOMContentLoaded", () => {
         const skyBackground = document.getElementById("skyBackground");
@@ -290,9 +239,7 @@
         // Toggle active class on the child sky panes and update cursor theme
         const changeSky = (timeOfDay) => {
           const paneSelector = [
-            ":scope > .dawn-sky",
             ":scope > .day-sky",
-            ":scope > .sunset-sky",
             ":scope > .night-sky",
           ].join(", ");
           const panes = skyBackground.querySelectorAll(paneSelector);
@@ -302,7 +249,7 @@
             `:scope > .${timeOfDay}-sky`
           );
           if (target) target.classList.add("active");
-          
+
           // Update cursor theme
           document.documentElement.setAttribute("data-theme", timeOfDay);
         };
@@ -317,6 +264,9 @@
             }
             timeButtons.forEach((btn) => btn.classList.remove("active"));
             button.classList.add("active");
+            timeButtons.forEach((btn) => {
+              btn.setAttribute("aria-pressed", String(btn === button));
+            });
             changeSky(button.dataset.time);
           });
         });

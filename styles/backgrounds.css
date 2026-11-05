@@ -4,12 +4,12 @@
     box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow: hidden;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .sky-background {
@@ -23,9 +23,7 @@ body, html {
 }
 
 /* Treat each child pane as a full-screen layer; hide by default */
-.sky-background > .dawn-sky,
 .sky-background > .day-sky,
-.sky-background > .sunset-sky,
 .sky-background > .night-sky {
     position: absolute;
     inset: 0;
@@ -34,9 +32,7 @@ body, html {
 }
 
 /* Show the active pane */
-.sky-background > .dawn-sky.active,
 .sky-background > .day-sky.active,
-.sky-background > .sunset-sky.active,
 .sky-background > .night-sky.active {
     display: block;
 }

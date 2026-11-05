@@ -2,39 +2,42 @@
     background: linear-gradient(to bottom, #4c85f0, #edf1f4);
     overflow: hidden;
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
 }
 
 .day-sky .landscape {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 50vh;
-  background: url('../images/hills.png') no-repeat center bottom;
-  background-size: cover;
-  background-position: center top;
-  pointer-events: none;
-  z-index: 2;
-  max-height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50vh;
+    background: url("../images/hills.png") no-repeat center bottom;
+    background-size: cover;
+    background-position: center top;
+    pointer-events: none;
+    z-index: 2;
+    max-height: 100vh;
 }
 
 .day-sky .sky {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50vh;
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    z-index: 1;
 }
 
 .day-sky .cloud {
     position: absolute;
     width: 400px;
     height: 240px;
-    background: url('../images/cloud.png') no-repeat center/contain;
+    background: url("../images/cloud.png") no-repeat center/contain;
     opacity: 0.8;
     animation: drift 60s linear infinite;
     z-index: 2;
@@ -67,6 +70,10 @@
 }
 
 @keyframes drift {
-    from { left: -500px; }
-    to { left: 100%; }
+    from {
+        left: -500px;
+    }
+    to {
+        left: 100%;
+    }
 }
